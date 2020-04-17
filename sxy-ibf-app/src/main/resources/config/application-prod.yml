@@ -1,0 +1,73 @@
+# WEB服务配置
+server:
+  port: 8080
+  # 请求头部大写修改限制 erp 授权
+  max-http-header-size: 1024000
+
+spring:
+  application:
+    # 应用名开发时修改区分注册服务
+    name: sxyibfapi-dmy
+  profiles:
+    active: dev
+    include:
+      - swagger
+  # 数据源配置
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.3.222:16609/sibedb?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+    username: sibeuat
+    password: sibeuat@01
+    # Hikari 连接池配置
+    # 最小空闲连接数量
+    hikari:
+      minimum-idle: 5
+      # 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      # 连接池最大连接数，默认是10
+      maximum-pool-size: 10
+      # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      # 连接池名称
+      pool-name: MyHikariCP
+      # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      # 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+
+# ERP 登录授权配置
+oauth2:
+    signature-verification:
+        public-key-endpoint-uri: http://sibeuaaapi/oauth/token_key
+        public-key-refresh-rate-limit: 10000
+        ttl: 3600000
+    web-client-configuration:
+        client-id: web_app
+        secret: changeit
+# 接口权限过滤
+authenticated:
+    filterEnabled: false
+
+# xxl-job 配置
+xxl:
+    job:
+      enabled: false # 启用配置 开发时可关闭
+      admin:
+        #调度中心部署跟地址：如调度中心集群部署存在多个地址则用逗号分隔。执行器将会使用该地址进行"执行器心跳注册"和"任务结果回调"。
+        addresses: http://192.168.3.221:18080/JobTaskDev
+      executor:
+        logpath: /var/log/ibf  #执行器运行日志文件存储的磁盘位置，需要对该路径拥有读写权限
+        logretentiondays: -1  #执行器Log文件定期清理功能，指定日志保存天数，日志文件过期自动删除。限制至少保持3天，否则功能不生效；
+        appname: ibfapi-zla # 执行器"AppName"和地址信息配置：AppName执行器心跳注册分组依据；
+        ip: #多网卡时可手动设置指定IP，手动设置IP时将会绑定Host。
+        port: 22221 #执行器默认端口为9999，执行器IP默认为空表示自动获取IP，
+      accessToken: # access token 执行器通讯TOKEN，非空时启用
+
+

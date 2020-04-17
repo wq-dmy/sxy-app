@@ -1,0 +1,15 @@
+
+# WEB服务配置
+server:
+  port: 8080
+  max-http-header-size: 1024000
+#
+spring:
+  application:
+    name: sxyibfapi
+  profiles:
+    active: dev
+
+info:
+    project:
+        version: 1.0.0

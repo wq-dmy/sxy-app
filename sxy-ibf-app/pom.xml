@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>sxy-app-parent</artifactId>
+        <groupId>com.sxy</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.sxy.ibf</groupId>
+    <artifactId>sxy-ibf-app</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <!-- 配置区域 此处配置版本可以覆盖父pom 版本-->
+    <properties>
+        <!-- 启动项目需要配置start-class主类-->
+        <start-class>com.sxy.ibf.SxyIbfApplication</start-class>
+        <project.build.encoding>UTF-8</project.build.encoding>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
+        <spring-cloud-starter.version>2.2.2.RELEASE</spring-cloud-starter.version>
+
+        <commons-codec.version>1.13</commons-codec.version>
+        <hikaricp.version>3.4.2</hikaricp.version>
+        <commons-lang3.version>3.9</commons-lang3.version>
+        <fastjson.version>1.2.58</fastjson.version>
+        <logback.version>1.2.3</logback.version>
+        <lombok.version>1.18.12</lombok.version>
+        <mongodb.version>3.11.2</mongodb.version>
+        <mysql.version>8.0.19</mysql.version>
+        <slf4j.version>1.7.30</slf4j.version>
+
+        <mybatis-plus-boot.version>3.2.0</mybatis-plus-boot.version>
+        <mybatis-spring-boot.version>2.1.1</mybatis-spring-boot.version>
+        <spring-kafka.version>2.3.7.RELEASE</spring-kafka.version>
+        <spring-security.version>5.2.2.RELEASE</spring-security.version>
+        <spring-security-oauth2.version>2.1.1.RELEASE</spring-security-oauth2.version>
+        <xxl-job.version>1.8.2</xxl-job.version>
+    </properties>
+
+
+    <!-- 包引用区 -->
+    <dependencies>
+        <!-- 自定义包  start -->
+        <dependency>
+            <groupId>com.sxy.ibf</groupId>
+            <artifactId>sxy-ibf-common</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sxy.ibf</groupId>
+            <artifactId>sxy-ibf-security</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- 自定义包  end -->
+
+        <!-- 开源包 start -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!-- xxl-job 使用 -->
+        <dependency>
+            <groupId>com.xuxueli</groupId>
+            <artifactId>xxl-job-core</artifactId>
+        </dependency>
+        <!-- consul -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <!-- 连接池 -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </dependency>
+        <!-- mybatis-plus  -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <!-- json  -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <!-- 开源包 end -->
+
+        <!-- dev test start-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- dev test end -->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

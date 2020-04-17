@@ -1,0 +1,85 @@
+#!/usr/bin/env groovy
+pipeline {
+    agent  any
+    environment {
+        def USERMAIL = "2850208108@qq.com"
+        def appVersion = 'v3.7.23'
+
+
+    }
+
+    stages {
+        stage('[1]拉取#manage#代码') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('[2]检测版本是否重复') {
+            steps {
+                sh "bash /tmp/version1.sh ibf"
+            }
+        }
+
+        stage('[3]清除') {
+            steps {
+                sh "chmod +x mvnw"
+                sh "./mvnw clean"
+            }
+        }
+        stage('[4]打包') {
+            steps {
+                sh "./mvnw -Pprod clean package -Dmaven.test.skip=true"
+            }
+        }
+        stage('[5]构建Docker镜像') {
+            steps {
+                sh "cp -R src/main/docker target/"
+                sh "cp target/*.war target/docker/"
+                sh "docker build -t  registry.cywz.cn/cywz/ibf:$appVersion target/docker"
+            }
+        }
+
+        stage('[6]发布Docker镜像') {
+            steps {
+                sh "docker   push   registry.cywz.cn/cywz/ibf:$appVersion"
+            }
+        }
+        stage('[7]自动部署') {
+            steps {
+                sh "bash /root/ansible.sh"
+            }
+        }
+    }
+    post {
+        success {
+            emailext (
+                subject: "'${env.JOB_NAME} [${env.BUILD_NUMBER}]' 更新正常",
+                body: """
+                详情：
+                SUCCESSFUL:
+                状态：${env.JOB_NAME}:$appVersion 更新运行正常
+                URL ：${env.BUILD_URL}
+                """,
+                to: "${USERMAIL}",
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+            )
+        }
+
+        failure {
+            emailext (
+                subject: "'${env.JOB_NAME} [${env.BUILD_NUMBER}]' 更新失败",
+                body: """
+                详情：
+                FAILURE：
+                状态：${env.JOB_NAME}:$appVersion 更新运行失败
+                URL ：${env.BUILD_URL}
+                """,
+                to: "${USERMAIL}",
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+            )
+        }
+
+    }
+}
+
