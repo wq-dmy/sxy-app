@@ -1,11 +1,11 @@
 package com.sxy.ibf.web;
 
 import com.sxy.ibf.security.SecurityUtils;
-import com.sxy.ibf.security.oauth2.AuthoritiesConstants;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.sxy.ibf.security.oauth2.OAuth2AuthenticationNew;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * @Description
@@ -16,19 +16,26 @@ import org.springframework.web.client.RestTemplate;
 public class TestController {
 
 
-    @Autowired
-    private RestTemplate restTemplate;
-
-    @RequestMapping("/api/test")
-    public String test(){
-
-        return "{\"description\": \""+SecurityUtils.getCurrentUserLogin()+" isAuthenticated="+SecurityUtils.isAuthenticated()+" UserInRole="+ SecurityUtils.isCurrentUserInRole(AuthoritiesConstants.ADMIN)+"\", \"status\": \"UP\" }";
-    }
-
-
+    Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @RequestMapping("/api/user")
     public String user(){
-        return SecurityUtils.getCurrentUserLogin();
+        OAuth2AuthenticationNew auth2AuthenticationNew = SecurityUtils.getAuthentication();
+
+        if(auth2AuthenticationNew != null){
+
+            logger.info("xing=" + auth2AuthenticationNew.getXing());
+            logger.info("user=" + auth2AuthenticationNew.getUserAuthentication().getPrincipal());
+            auth2AuthenticationNew.getAuthorities().stream().forEach((a)->{
+                logger.info("Authority:"+a.getAuthority());
+            });
+            return auth2AuthenticationNew.getXing();
+        }else {
+            logger.warn("无用户登录信息！");
+            return "无用户登录信息！";
+        }
+
+
+
     }
 }

@@ -12,7 +12,9 @@
     <!-- 项目模块 注意顺序被引用的放前面先编译 -->
     <modules>
         <module>sxy-ibf-common</module>
+        <module>sxy-ibf-repository</module>
         <module>sxy-ibf-security</module>
+        <module>sxy-ibf-service</module>
         <module>sxy-ibf-app</module>
     </modules>
 
@@ -20,16 +22,19 @@
     <properties>
         <!-- 启动项目需要配置start-class主类-->
         <start-class></start-class>
+        <java.version>1.8</java.version>
+        <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
+        <spring-cloud-starter.version>2.2.2.RELEASE</spring-cloud-starter.version>
+
         <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
         <maven-compiler-plugin>3.7.0</maven-compiler-plugin>
         <maven-source-plugin>3.0.1</maven-source-plugin>
-        <!-- 编码设置 -->
         <project.build.encoding>UTF-8</project.build.encoding>
         <project.build.sourceEncoding>${project.build.encoding}</project.build.sourceEncoding>
         <project.reporting.outputEncoding>${project.build.encoding}</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
-        <spring-cloud-starter.version>2.2.2.RELEASE</spring-cloud-starter.version>
+
         <hikaricp.version>3.4.2</hikaricp.version>
         <commons-codec.version>1.13</commons-codec.version>
         <commons-lang3.version>3.9</commons-lang3.version>
@@ -57,7 +62,13 @@
         <xxl-job.version>1.8.2</xxl-job.version>
     </properties>
 
+    <!-- 默认引入所有子项目默认引入，不建议乱加 所有项目必用可加，子项目和父项目同时引用只会引一个版本 优先引子项目 -->
     <dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
 
 
     </dependencies>
@@ -66,7 +77,7 @@
     <!-- 开源包依赖管理 -->
     <dependencyManagement>
         <dependencies>
-            <!-- 引入spring boot 对应的版本仲裁 -->
+            <!-- 引入spring官方 对应的版本依赖关系 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -74,7 +85,20 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- start -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -173,6 +197,12 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
 
             <!-- dev test end -->
         </dependencies>
@@ -212,7 +242,7 @@
         <resources>
             <resource>
                 <filtering>true</filtering>
-                <directory>${project.basedir}/src/main/resources</directory>
+                <directory>${basedir}/src/main/resources</directory>
                 <includes>
                     <include>**/application*.yml</include>
                     <include>**/application*.yaml</include>
@@ -220,7 +250,7 @@
                 </includes>
             </resource>
             <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
+                <directory>${basedir}/src/main/resources</directory>
                 <excludes>
                     <exclude>**/application*.yml</exclude>
                     <exclude>**/application*.yaml</exclude>

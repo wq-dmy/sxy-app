@@ -15,6 +15,23 @@ public final class SecurityUtils {
     private SecurityUtils() {
     }
 
+
+    /**
+     * 获取授权对象
+     * @return
+     */
+    public static OAuth2AuthenticationNew getAuthentication(){
+        SecurityContext securityContext = SecurityContextHolder.getContext();
+        Authentication authentication = securityContext.getAuthentication();
+        if (authentication.getPrincipal() instanceof String){
+            if( authentication instanceof OAuth2AuthenticationNew){
+                OAuth2AuthenticationNew oAuth2AuthenticationNew = (OAuth2AuthenticationNew)authentication;
+                return  oAuth2AuthenticationNew;
+            }
+        }
+        return null;
+    }
+
     /**
      * Get the login of the current user.
      *
