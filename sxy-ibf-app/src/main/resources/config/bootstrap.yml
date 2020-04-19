@@ -13,8 +13,8 @@ spring:
       discovery:
         prefer-ip-address: true
         healthCheckPath: /actuator/health
-        instanceId: ${spring.application.name} #:${spring.application.instance-id:${random.value}}
+        instanceId: ${spring.application.name}${spring.application.instance-id:${random.value}}
         tags: profile=${spring.profiles.active},version=${info.project.version}
       # consul 服务地址
-      host: 192.168.3.223
+      host: localhost
       port: 8500

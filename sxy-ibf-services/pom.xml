@@ -10,8 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sxy.ibf</groupId>
-    <artifactId>sxy-ibf-service</artifactId>
+    <artifactId>sxy-ibf-services</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.1-SNAPSHOT</version>
+
+    <modules>
+        <module>sxy-ibf-service</module>
+        <module>sxy-ibf-service-erp</module>
+    </modules>
 
 
 </project>

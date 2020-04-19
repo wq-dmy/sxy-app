@@ -20,9 +20,9 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.3.222:16609/sibedb?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true&serverTimezone=GMT%2B8
-    username: sibeuat
-    password: sibeuat@01
+    url: jdbc:mysql://mysql.wq-dmy.cn:3306/qdm639302565_db?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+    username: qdm639302565
+    password: Wx01269319
     # Hikari 连接池配置
     # 最小空闲连接数量
     hikari:
@@ -35,8 +35,8 @@ spring:
       auto-commit: true
       # 连接池名称
       pool-name: MyHikariCP
-      # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
-      max-lifetime: 1800000
+      # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认30分钟
+      max-lifetime: 600000
       # 数据库连接超时时间,默认30秒，即30000
       connection-timeout: 30000
       connection-test-query: SELECT 1

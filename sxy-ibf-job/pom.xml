@@ -10,19 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sxy.ibf</groupId>
-    <artifactId>sxy-ibf-common</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <artifactId>sxy-ibf-job</artifactId>
+    <version>1.0</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-        <!-- json  -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-        </dependency>
-    </dependencies>
 
 </project>

@@ -12,4 +12,4 @@ spring:
 
 info:
     project:
-        version: 1.0.0
+        version: #project.version#

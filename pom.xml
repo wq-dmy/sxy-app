@@ -13,9 +13,11 @@
     <modules>
         <module>sxy-ibf-common</module>
         <module>sxy-ibf-repository</module>
+        <module>sxy-ibf-sdk</module>
         <module>sxy-ibf-security</module>
-        <module>sxy-ibf-service</module>
+        <module>sxy-ibf-services</module>
         <module>sxy-ibf-app</module>
+        <module>sxy-ibf-job</module>
     </modules>
 
     <!-- 主要版本配置管理 -->
@@ -54,11 +56,11 @@
         <quartz.version>2.3.2</quartz.version>
         <slf4j.version>1.7.30</slf4j.version>
 
-        <mybatis-plus-boot.version>3.2.0</mybatis-plus-boot.version>
+        <mybatis-plus-boot.version>3.3.0</mybatis-plus-boot.version>
         <mybatis-spring-boot.version>2.1.1</mybatis-spring-boot.version>
         <spring-kafka.version>2.3.7.RELEASE</spring-kafka.version>
         <spring-security.version>5.2.2.RELEASE</spring-security.version>
-        <spring-security-oauth2.version>2.1.1.RELEASE</spring-security-oauth2.version>
+        <spring-security-oauth2.version>2.2.2.RELEASE</spring-security-oauth2.version>
         <xxl-job.version>1.8.2</xxl-job.version>
     </properties>
 
@@ -170,6 +172,7 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus-boot.version}</version>
             </dependency>
+
             <!-- json  -->
             <dependency>
                 <groupId>com.alibaba</groupId>

@@ -7,10 +7,37 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="sxy-ibf-app" />
+        <module name="sxy-ibf-common" />
+        <module name="sxy-ibf-repository" />
+        <module name="sxy-ibf-security" />
+        <module name="sxy-ibf-service" />
+        <module name="sxy-ibf-service-erp" />
         <module name="sxyibfapp" />
         <module name="sxyibfcommon" />
+        <module name="sxyibfjob" />
+        <module name="sxyibfsdk" />
         <module name="sxyibfsecurity" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sxyibfservice" target="1.8" />
+      <module name="sxyibfserviceerp" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="sxy-ibf-app" options="-parameters" />
+      <module name="sxy-ibf-common" options="-parameters" />
+      <module name="sxy-ibf-repository" options="-parameters" />
+      <module name="sxy-ibf-security" options="-parameters" />
+      <module name="sxy-ibf-service" options="-parameters" />
+      <module name="sxy-ibf-service-erp" options="-parameters" />
+      <module name="sxy-ibf-services" options="" />
+      <module name="sxyibfjob" options="-parameters" />
+      <module name="sxyibfsdk" options="-parameters" />
+      <module name="sxyibfservice" options="-parameters" />
+      <module name="sxyibfserviceerp" options="-parameters" />
+    </option>
   </component>
 </project>
