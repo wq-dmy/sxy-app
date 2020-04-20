@@ -1,4 +1,4 @@
-package com.sxy.ibf.security.oauth2;
+package com.sxy.ibf.security.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

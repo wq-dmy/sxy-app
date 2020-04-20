@@ -6,15 +6,15 @@ spring:
   # 服务注册
   cloud:
     consul:
-#      config:
-#          fail-fast: false # if not in "prod" profile, do not force to use Spring Cloud Config
-#          format: yaml
-#          profile-separator: "-"
+      config:
+          fail-fast: false # if not in "prod" profile, do not force to use Spring Cloud Config
+          format: yaml
+          profile-separator: "-"
       discovery:
         prefer-ip-address: true
         healthCheckPath: /actuator/health
         instanceId: ${spring.application.name}${spring.application.instance-id:${random.value}}
         tags: profile=${spring.profiles.active},version=${info.project.version}
       # consul 服务地址
-      host: localhost
+      host: 192.168.3.223
       port: 8500

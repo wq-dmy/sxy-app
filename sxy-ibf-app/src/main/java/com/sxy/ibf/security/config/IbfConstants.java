@@ -1,4 +1,4 @@
-package com.sxy.ibf.config;
+package com.sxy.ibf.security.config;
 
 import java.text.SimpleDateFormat;
 

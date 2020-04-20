@@ -11,7 +11,7 @@
 
     <groupId>com.sxy.ibf</groupId>
     <artifactId>sxy-ibf-job</artifactId>
-    <version>1.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
 
 </project>

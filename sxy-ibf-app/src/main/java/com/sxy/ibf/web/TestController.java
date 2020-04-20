@@ -1,6 +1,6 @@
 package com.sxy.ibf.web;
 
-import com.sxy.ibf.security.SecurityUtils;
+import com.sxy.ibf.security.oauth2.SecurityUtils;
 import com.sxy.ibf.security.oauth2.OAuth2AuthenticationNew;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

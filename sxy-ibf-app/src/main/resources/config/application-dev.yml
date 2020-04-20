@@ -20,9 +20,9 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql.wq-dmy.cn:3306/qdm639302565_db?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true&serverTimezone=GMT%2B8
-    username: qdm639302565
-    password: Wx01269319
+    url: jdbc:mysql://192.168.3.222:16609/sibedb?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true&serverTimezone=GMT%2B8
+    username: sibeuat
+    password: sibeuat@01
     # Hikari 连接池配置
     # 最小空闲连接数量
     hikari:

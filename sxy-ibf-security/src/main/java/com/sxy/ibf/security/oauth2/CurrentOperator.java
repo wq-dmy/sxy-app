@@ -1,7 +1,5 @@
 package com.sxy.ibf.security.oauth2;
 
-import com.sxy.ibf.security.SecurityUtils;
-
 /**
  * Created by zhw on 2017-11-07.
  */

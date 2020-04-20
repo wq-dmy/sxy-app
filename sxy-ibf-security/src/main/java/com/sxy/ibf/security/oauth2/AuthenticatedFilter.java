@@ -1,6 +1,5 @@
 package com.sxy.ibf.security.oauth2;
 
-import com.sxy.ibf.security.SecurityUtils;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 

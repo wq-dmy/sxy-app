@@ -1,6 +1,7 @@
 package com.sxy.ibf.security.oauth2;
 
 
+import com.sxy.ibf.security.config.OAuth2Properties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.jwt.crypto.sign.SignatureVerifier;

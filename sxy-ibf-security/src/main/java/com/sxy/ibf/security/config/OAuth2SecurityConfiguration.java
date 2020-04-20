@@ -1,5 +1,7 @@
-package com.sxy.ibf.security.oauth2;
+package com.sxy.ibf.security.config;
 
+import com.sxy.ibf.security.oauth2.OAuth2JwtAccessTokenConverter;
+import com.sxy.ibf.security.oauth2.OAuth2SignatureVerifierClient;
 import org.springframework.cloud.client.loadbalancer.RestTemplateCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

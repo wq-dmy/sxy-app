@@ -12,5 +12,9 @@
     <artifactId>sxy-ibf-sdk</artifactId>
     <version>1.0.1-SNAPSHOT</version>
 
+    <dependencies>
+
+
+    </dependencies>
 
 </project>

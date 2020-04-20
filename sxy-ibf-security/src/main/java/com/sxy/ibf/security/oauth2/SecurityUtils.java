@@ -1,4 +1,4 @@
-package com.sxy.ibf.security;
+package com.sxy.ibf.security.oauth2;
 
 import com.sxy.ibf.security.oauth2.AuthoritiesConstants;
 import com.sxy.ibf.security.oauth2.OAuth2AuthenticationNew;

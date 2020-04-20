@@ -16,8 +16,8 @@
         <module>sxy-ibf-sdk</module>
         <module>sxy-ibf-security</module>
         <module>sxy-ibf-services</module>
-        <module>sxy-ibf-app</module>
         <module>sxy-ibf-job</module>
+        <module>sxy-ibf-app</module>
     </modules>
 
     <!-- 主要版本配置管理 -->
