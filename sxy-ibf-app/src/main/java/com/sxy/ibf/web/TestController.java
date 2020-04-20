@@ -1,9 +1,12 @@
 package com.sxy.ibf.web;
 
+import com.alibaba.fastjson.JSON;
+import com.sxy.ibf.repository.mybatis.mapper.SystemResourcesMapper;
 import com.sxy.ibf.security.oauth2.SecurityUtils;
 import com.sxy.ibf.security.oauth2.OAuth2AuthenticationNew;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,9 +17,16 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 public class TestController {
+    final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
-    Logger logger = LoggerFactory.getLogger(this.getClass());
+    @Autowired
+    private SystemResourcesMapper systemResourcesMapper;
+
+    @RequestMapping("/api/menu")
+    public String menu(){
+        return  JSON.toJSONString(systemResourcesMapper.findByPidSystemResource());
+    }
 
     @RequestMapping("/api/user")
     public String user(){
