@@ -62,6 +62,22 @@
             <artifactId>sxy-ibf-security</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.sxy.ibf</groupId>
+            <artifactId>sxy-ibf-sdk</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sxy.ibf</groupId>
+            <artifactId>sxy-ibf-service</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sxy.ibf</groupId>
+            <artifactId>sxy-ibf-job</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+
 
         <!-- 自定义包  end -->
 
