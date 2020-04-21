@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>sxy-app-parent</artifactId>
-        <groupId>com.sxy</groupId>
-        <version>1.0</version>
+        <groupId>com.sxy.ibf</groupId>
+        <artifactId>ibf-management</artifactId>
+        <version>1.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sxy.ibf</groupId>
-    <artifactId>sxy-ibf-app</artifactId>
+    <artifactId>ibf-management-api</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -49,22 +49,22 @@
         <!-- 自定义包  start -->
         <dependency>
             <groupId>com.sxy.ibf</groupId>
-            <artifactId>sxy-ibf-common</artifactId>
+            <artifactId>ibf-common</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sxy.ibf</groupId>
-            <artifactId>sxy-ibf-repository</artifactId>
+            <artifactId>ibf-repository-mysql</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sxy.ibf</groupId>
-            <artifactId>sxy-ibf-security</artifactId>
+            <artifactId>ibf-security</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.sxy.ibf</groupId>
-            <artifactId>sxy-ibf-sdk</artifactId>
+            <artifactId>ibf-client</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -74,7 +74,7 @@
         </dependency>
         <dependency>
             <groupId>com.sxy.ibf</groupId>
-            <artifactId>sxy-ibf-job</artifactId>
+            <artifactId>ibf-job</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
 

@@ -1,4 +1,4 @@
-package com.sxy.ibf.security.config;
+package com.sxy.ibf.management.config;
 
 import com.xxl.job.core.executor.XxlJobExecutor;
 import org.slf4j.Logger;

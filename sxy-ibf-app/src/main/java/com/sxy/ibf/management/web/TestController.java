@@ -1,4 +1,4 @@
-package com.sxy.ibf.web;
+package com.sxy.ibf.management.web;
 
 import com.alibaba.fastjson.JSON;
 import com.sxy.ibf.repository.mybatis.mapper.SystemResourcesMapper;

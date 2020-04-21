@@ -1,5 +1,6 @@
-package com.sxy.ibf;
+package com.sxy.ibf.management;
 
+import com.sxy.ibf.SxyIbfApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 

@@ -10,28 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sxy.ibf</groupId>
-    <artifactId>sxy-ibf-repository</artifactId>
+    <artifactId>ibf-repository</artifactId>
+    <packaging>pom</packaging>
     <version>1.0.1-SNAPSHOT</version>
+    <modules>
+        <module>ibf-repository-api</module>
+        <module>ibf-repository-mysql</module>
+    </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
-        <!-- 连接池 -->
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP</artifactId>
-        </dependency>
-        <!-- mybatis-plus  -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-    </dependencies>
+
 
 </project>
